@@ -28,7 +28,7 @@ public class UserController {
 
 
     @PutMapping("/update/{id}")
-    public UserResponse updateUser(@PathVariable Long id, @Valid @RequestBody UserRequest userRequest) {
+    public UserResponse updateUser(@PathVariable("id") Long id, @Valid @RequestBody UserRequest userRequest) {
         log.info("Put request user with id: {}, userRequest: {}", id, userRequest);
         return userMapper.convertFromUserToUserResponse(userService.update(id, userRequest));
     }
@@ -40,7 +40,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public UserResponse getUserById(@PathVariable Long id) {
+    public UserResponse getUserById(@PathVariable("id") Long id) {
         log.info("Get request user with id: {}", id);
         return userMapper.convertFromUserToUserResponse(userService.getUserById(id));
     }
@@ -52,7 +52,7 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteUserById(@PathVariable Long id) {
+    public void deleteUserById(@PathVariable("id") Long id) {
         log.info("Delete request user with id: {}", id);
         userService.deleteUserById(id);
     }

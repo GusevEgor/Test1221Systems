@@ -21,13 +21,13 @@ public class FoodIntakeController {
     private final FoodIntakeMapper foodIntakeMapper;
 
     @PostMapping("/create/{userId}")
-    public FoodIntakeResponse create(@PathVariable Long userId, @Valid @RequestBody FoodIntakeRequest foodIntakeRequest) {
+    public FoodIntakeResponse create(@PathVariable("userId") Long userId, @Valid @RequestBody FoodIntakeRequest foodIntakeRequest) {
         log.info("Post request with foodIntakeRequest: {}", foodIntakeRequest);
         return foodIntakeMapper.convertFromEntityToFoodIntakeResponse(foodIntakeService.create(userId, foodIntakeRequest));
     }
 
     @GetMapping("/get{id}")
-    public FoodIntakeResponse get(@PathVariable Long id) {
+    public FoodIntakeResponse get(@PathVariable("id") Long id) {
         log.info("Get request foodIntake with id: {}", id);
         return foodIntakeMapper.convertFromEntityToFoodIntakeResponse(foodIntakeService.get(id));
     }
@@ -39,7 +39,7 @@ public class FoodIntakeController {
     }
 
     @DeleteMapping("delete/{userId}/{id}")
-    public void delete(@PathVariable Long userId, @PathVariable Long id) {
+    public void delete(@PathVariable("userId") Long userId, @PathVariable("id") Long id) {
         log.info("Delete request foodIntake with id: {}", id);
         foodIntakeService.delete(userId, id);
     }

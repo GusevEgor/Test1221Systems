@@ -26,13 +26,13 @@ public class FoodController {
     }
 
     @PutMapping("/update/{id}")
-    public FoodResponse update(@PathVariable Long id, @Valid @RequestBody FoodRequest foodRequest) {
+    public FoodResponse update(@PathVariable("id") Long id, @Valid @RequestBody FoodRequest foodRequest) {
         log.info("Put request food with id: {}, foodRequest: {}", id, foodRequest);
         return foodMapper.convertFromEntityToFoodResponse(foodService.update(id, foodRequest));
     }
 
     @GetMapping("get/{id}")
-    public FoodResponse get(@PathVariable Long id) {
+    public FoodResponse get(@PathVariable("id") Long id) {
         log.info("Get request food with id: {}", id);
         return foodMapper.convertFromEntityToFoodResponse(foodService.get(id));
     }
@@ -44,7 +44,7 @@ public class FoodController {
     }
 
     @DeleteMapping("delete/{id}")
-    public void delete(@PathVariable Long id) {
+    public void delete(@PathVariable("id") Long id) {
         log.info("Delete request food with id: {}", id);
         foodService.delete(id);
     }

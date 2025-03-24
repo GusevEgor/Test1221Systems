@@ -19,19 +19,19 @@ public class ReportController {
     private final ReportService reportService;
 
     @GetMapping("/daily/{userId}")
-    public DailyReportResponse getDailyReport(@PathVariable Long userId) {
+    public DailyReportResponse getDailyReport(@PathVariable("userId") Long userId) {
         log.info("Get daily report for user with id {}", userId);
         return reportService.getDailyReport(userId);
     }
 
     @GetMapping("/daily/status/{userId}")
-    public DailyStatusResponse getDailyStatusReport(@PathVariable Long userId) {
+    public DailyStatusResponse getDailyStatusReport(@PathVariable("userId") Long userId) {
         log.info("Get daily status for user with id {}", userId);
         return reportService.getDailyStatus(userId);
     }
 
     @GetMapping("history/{userId}")
-    public HistoryReportResponse getHistoryReport(@PathVariable Long userId) {
+    public HistoryReportResponse getHistoryReport(@PathVariable("userId") Long userId) {
         log.info("Get history report for user with id {}", userId);
         return reportService.getHistoryReport(userId);
     }
