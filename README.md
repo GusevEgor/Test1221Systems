@@ -27,7 +27,7 @@
 5. После запуска контейнеров проект будет доступен по адресу:
    - Swagger UI: http://localhost:8045/swagger-ui/index.html#/
 
-### UNL Диаграмма сущностей базы данных.
+### UML Диаграмма сущностей базы данных.
 
 
 ![Диаграмма](https://github.com/user-attachments/assets/7b848a48-8d9a-4c9a-9ca3-db4ca95c83e3)
